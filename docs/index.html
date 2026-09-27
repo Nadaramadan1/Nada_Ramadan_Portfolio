@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Nada Shams Eldin — AI Engineer</title>
+    <meta name="description" content="Portfolio of Nada Shams Eldin, AI Engineer with experience building machine learning and deep learning projects, alongside practical web development." />
+    <meta name="author" content="Nada Shams Eldin" />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B0F19" media="(prefers-color-scheme: dark)" />
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Theme Initialization (prevents FOUC) -->
+    <script>
+      (function() {
+        try {
+          const stored = localStorage.getItem('portfolio-theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && prefersDark)) {
+            // Note: Light mode is default per requirements unless user/system specifically sets dark
+            if (stored === 'dark') {
+              document.documentElement.classList.add('dark');
+            }
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-DsgPOLKZ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-fCqWL343.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
