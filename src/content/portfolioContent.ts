@@ -134,14 +134,35 @@ export interface CertificationsContent {
   items: CertificationItem[];
 }
 
+export interface ResumeTimelineItem {
+  id: string;
+  year: string;
+  role: string;
+  org: string;
+  detail: string;
+}
+
+export interface ResumeFocusArea {
+  id: string;
+  label: string;
+  tags: string[];
+}
+
 export interface ResumeContent {
   eyebrow: string;
   heading: string;
-  intro: string;
+  subheading: string;
   fileUrl?: string | null;
   fileName?: string;
   lastUpdated?: string;
-  highlights?: string[];
+  education: {
+    degree: string;
+    institution: string;
+    faculty: string;
+    expectedGraduation: string;
+  };
+  timeline: ResumeTimelineItem[];
+  focusAreas: ResumeFocusArea[];
 }
 
 export interface ContactLink {
@@ -555,20 +576,65 @@ export const portfolioContent: PortfolioContent = {
     ],
   },
   resume: {
-    eyebrow: '07 // Resume',
-    heading: 'Curriculum Vitae',
-    intro:
-      'A full summary of professional experience, applied project work, technical skills, and educational background. Available as a downloadable PDF document.',
+    eyebrow: 'Resume',
+    heading: 'A closer look at my journey.',
+    subheading: 'AI, machine learning, and software engineering — all in one place.',
     fileUrl: null, // Place the PDF at src/assets/resume/Nada-Shams-Eldin-Resume.pdf and update this path
     fileName: 'Nada-Shams-Eldin-Resume.pdf',
-    lastUpdated: undefined, // Update with document date once the PDF is ready, e.g. 'September 2026'
-    highlights: [
-      'AI Engineering background with hands-on machine learning and deep learning project work',
-      'Instructional experience as an AI educator covering ML fundamentals and supervised learning',
-      'Full-stack web development projects using Django, JavaScript, HTML, and CSS',
-      'Applied AI project implementations including adaptive planning and recommendation systems',
+    lastUpdated: undefined,
+    education: {
+      degree: 'B.Sc. Computer Science',
+      institution: 'Cairo University',
+      faculty: 'Faculty of Computers and Artificial Intelligence',
+      expectedGraduation: '2028',
+    },
+    timeline: [
+      {
+        id: 'internship',
+        year: '2025',
+        role: 'Machine Learning Intern',
+        org: 'Elevvo Pathways',
+        detail: 'July – August 2025',
+      },
+      {
+        id: 'star-union',
+        year: '2025 – Present',
+        role: 'AI Member & Technical Instructor',
+        org: 'Star Union',
+        detail: 'November 2025 – Present',
+      },
+      {
+        id: 'graduation',
+        year: '2028',
+        role: 'Expected Graduation',
+        org: 'Cairo University',
+        detail: 'Faculty of Computers and Artificial Intelligence',
+      },
+    ],
+    focusAreas: [
+      {
+        id: 'ai-ml',
+        label: 'AI / ML',
+        tags: ['Deep Learning', 'Machine Learning', 'Computer Vision', 'Transfer Learning'],
+      },
+      {
+        id: 'web',
+        label: 'Web',
+        tags: ['Python', 'Django', 'JavaScript', 'HTML', 'CSS', 'SQL'],
+      },
+      {
+        id: 'mlops',
+        label: 'MLOps',
+        tags: ['Data Pipelines', 'Ensemble Learning', 'Git', 'GitHub'],
+      },
+      {
+        id: 'ai-automation',
+        label: 'AI Automation',
+        tags: ['n8n', 'Multi-Agent AI Workflows'],
+      },
     ],
   },
+
   contact: {
     eyebrow: '08 // Contact',
     heading: 'Start a conversation',
