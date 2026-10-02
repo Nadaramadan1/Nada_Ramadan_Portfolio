@@ -18,23 +18,9 @@ export interface FocusArea {
   tag: string;
 }
 
-export interface AboutFocusItem {
-  id: string;
-  index: string;
-  title: string;
-  tag: string;
-  description?: string;
-}
-
 export interface AboutContent {
-  eyebrow: string;
   heading: string;
-  subheading?: string;
   leadParagraph: string;
-  secondaryParagraph?: string;
-  focusHeading: string;
-  focusDescription?: string;
-  focusItems: AboutFocusItem[];
 }
 
 export interface ExperienceLink {
@@ -179,9 +165,8 @@ export interface PortfolioContent {
   };
   navigation: NavItem[];
   hero: {
-    eyebrow: string;
-    headlinePrefix: string;
-    headlineHighlight: string;
+    namePrefix: string;
+    nameHighlight: string;
     role: string;
     description: string;
     primaryCta: {
@@ -197,7 +182,6 @@ export interface PortfolioContent {
       label: string;
       href: string;
     };
-    focusAreas: FocusArea[];
   };
   about: AboutContent;
   experience: ExperienceContent;
@@ -229,12 +213,11 @@ export const portfolioContent: PortfolioContent = {
     { id: 'contact', label: 'Contact', href: '#contact' },
   ],
   hero: {
-    eyebrow: 'Specialization · Machine Learning & AI Engineering',
-    headlinePrefix: 'Nada',
-    headlineHighlight: 'Shams Eldin',
+    namePrefix: 'Nada',
+    nameHighlight: 'Shams Eldin',
     role: 'AI Engineer',
     description:
-      'AI Engineer with hands-on experience building machine learning and deep learning projects, alongside practical web development experience.',
+      'Building practical machine learning and deep learning solutions, with hands-on experience across AI and web development.',
     primaryCta: {
       label: 'View Projects',
       href: '#projects',
@@ -248,58 +231,11 @@ export const portfolioContent: PortfolioContent = {
       label: 'Get in Touch',
       href: '#contact',
     },
-    focusAreas: [
-      { label: 'Machine Learning', tag: 'Core Discipline' },
-      { label: 'Deep Learning', tag: 'Neural Architectures' },
-      { label: 'AI Projects', tag: 'Applied Solutions' },
-      { label: 'Web & Software Development', tag: 'Full-Stack Implementation' },
-    ],
   },
   about: {
-    eyebrow: '01 // Background & Identity',
-    heading: 'Engineering Applied AI & Scalable Software',
-    subheading: 'Technical Profile',
+    heading: 'I’m Nada Shams Eldin, a Computer Science student at Cairo University and an AI Engineer focused on machine learning and deep learning.',
     leadParagraph:
-      'AI Engineer focused on building practical machine learning and deep learning solutions, with a strong foundation in software development and hands-on project experience.',
-    secondaryParagraph:
-      'Dedicated to bridging algorithmic models with robust, real-world software architecture. My engineering approach emphasizes systematic evaluation, clean code structure, and measurable problem-solving across machine learning and modern web technologies.',
-    focusHeading: 'Core Competency Domains',
-    focusDescription:
-      'Primary disciplines where I apply hands-on engineering principles and practical implementation.',
-    focusItems: [
-      {
-        id: 'ml',
-        index: '01',
-        title: 'Machine Learning',
-        tag: 'Core Discipline',
-        description:
-          'Data preprocessing, model training, validation pipelines, and performance evaluation.',
-      },
-      {
-        id: 'dl',
-        index: '02',
-        title: 'Deep Learning',
-        tag: 'Neural Architectures',
-        description:
-          'Deep neural networks, model optimization, feature extraction, and complex pattern modeling.',
-      },
-      {
-        id: 'ai-projects',
-        index: '03',
-        title: 'AI Projects',
-        tag: 'Applied Solutions',
-        description:
-          'Translating theoretical machine learning concepts into functional, end-to-end applications.',
-      },
-      {
-        id: 'web-dev',
-        index: '04',
-        title: 'Web & Software Development',
-        tag: 'Full-Stack Foundation',
-        description:
-          'Building reliable frontend and backend integrations to deploy and interact with intelligent services.',
-      },
-    ],
+      'My experience combines hands-on AI project work, machine learning instruction, and web development. I enjoy building practical solutions where models and software come together, and I’m continuously deepening my skills through projects, training, and real-world experience.',
   },
   experience: {
     eyebrow: '02 // Professional Experience',
