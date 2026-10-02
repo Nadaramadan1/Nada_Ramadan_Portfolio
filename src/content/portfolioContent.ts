@@ -7,6 +7,10 @@
  * are stored here for straightforward editing and global synchronization.
  */
 
+import yummyImg from '../assets/projects/yummy-recipe.jpg';
+import budgetingImg from '../assets/projects/budgeting-app.jpg';
+import studyPlannerImg from '../assets/projects/study-planner.jpg';
+
 export interface NavItem {
   id: string;
   label: string;
@@ -345,7 +349,7 @@ export const portfolioContent: PortfolioContent = {
           'CSS',
           'JavaScript',
         ],
-        image: null, // Place screenshot in src/assets/projects/yummy-recipe.png
+        image: yummyImg,
         additionalImages: [],
         features: [
           'User authentication and personalized session management',
@@ -369,7 +373,7 @@ export const portfolioContent: PortfolioContent = {
         fullDescription:
           'Intuitive financial application built to organize user budgets, calculate spending summaries, and present structured financial records.',
         technologies: ['Web Application', 'Frontend Architecture'],
-        image: null, // Place screenshot in src/assets/projects/budgeting-app.png
+        image: budgetingImg,
         additionalImages: [],
         features: [
           'Structured expense input and budget allocation',
@@ -393,7 +397,7 @@ export const portfolioContent: PortfolioContent = {
         fullDescription:
           'Applied intelligent scheduling system that integrates a high-performance FastAPI service layer with dynamic study plan generation logic.',
         technologies: ['FastAPI', 'AI Architecture', 'Python', 'Web Integration'],
-        image: null, // Place screenshot in src/assets/projects/study-planner.png
+        image: studyPlannerImg,
         additionalImages: [],
         features: [
           'High-performance asynchronous backend powered by FastAPI',
