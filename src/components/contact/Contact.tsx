@@ -29,16 +29,17 @@ export const Contact: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {contact.links.map((link) => {
             const hasHref = Boolean(link.href);
+            const isEmail = link.type === 'email';
             return (
               <div
                 key={link.id}
-                className="p-5 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-secondary)]/40 flex flex-col justify-between gap-3"
+                className="p-5 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-secondary)]/40 flex flex-col justify-between gap-3 hover:border-[var(--color-border-default)] transition-colors"
               >
                 <div>
                   <span className="font-mono text-xs text-[var(--color-text-muted)] uppercase tracking-wider block mb-1">
                     {link.label}
                   </span>
-                  <span className={`text-sm ${hasHref ? 'text-[var(--color-text-primary)] font-medium' : 'text-[var(--color-text-muted)] italic'}`}>
+                  <span className="text-sm font-medium text-[var(--color-text-primary)] break-all">
                     {link.value}
                   </span>
                 </div>
@@ -47,11 +48,11 @@ export const Contact: React.FC = () => {
                   <div>
                     <a
                       href={link.href!}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={isEmail ? undefined : '_blank'}
+                      rel={isEmail ? undefined : 'noopener noreferrer'}
                       className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[var(--color-accent-primary)] hover:underline focus-ring rounded"
                     >
-                      <span>Visit</span>
+                      <span>{isEmail ? 'Send Email' : 'Visit Profile'}</span>
                       <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
                     </a>
                   </div>
@@ -64,4 +65,5 @@ export const Contact: React.FC = () => {
     </Section>
   );
 };
+
 
