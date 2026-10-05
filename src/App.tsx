@@ -28,31 +28,31 @@ const PortfolioMain: React.FC = () => {
 
       {/* Main Content */}
       <main id="main-content" className="flex-1">
-        {/* Step 2 Section: Home / Hero */}
+        {/* Section 1: Home / Hero */}
         <Hero />
 
-        {/* Step 3 Section: About */}
+        {/* Section 2: About */}
         <About />
 
-        {/* Step 3 Section: Experience */}
-        <Experience />
-
-        {/* Step 4 Section: Projects */}
-        <Projects />
-
-        {/* Step 5 Section: Skills */}
-        <Skills />
-
-        {/* Step 6 Section: Services */}
+        {/* Section 3: Services */}
         <Services />
 
-        {/* Step 7 Section: Certifications */}
+        {/* Section 4: Projects */}
+        <Projects />
+
+        {/* Section 5: Experience */}
+        <Experience />
+
+        {/* Section 6: Skills */}
+        <Skills />
+
+        {/* Section 7: Certifications */}
         <Certifications />
 
-        {/* Step 8 Section: Resume */}
+        {/* Section 8: Resume */}
         <Resume />
 
-        {/* Step 9 Section: Contact */}
+        {/* Section 9: Contact */}
         <Contact />
       </main>
 
@@ -68,7 +68,7 @@ const PortfolioMain: React.FC = () => {
               <span>{personal.title}</span>
             </div>
             <div className="font-mono text-[11px]">
-              Step 9: Contact Implemented · Foundation Complete
+              © {new Date().getFullYear()} Nada Shams Eldin
             </div>
           </div>
         </Container>

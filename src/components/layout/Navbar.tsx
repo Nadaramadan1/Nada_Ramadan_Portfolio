@@ -132,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection: controlledActiveS
           {/* Desktop Navigation Links */}
           <nav
             aria-label="Primary Navigation"
-            className="hidden xl:flex items-center gap-1 bg-[var(--color-bg-secondary)]/70 border border-[var(--color-border-subtle)] p-1 rounded-full shadow-xs"
+            className="hidden lg:flex items-center gap-1 bg-[var(--color-bg-secondary)]/70 border border-[var(--color-border-subtle)] p-1 rounded-full shadow-xs"
           >
             {navigation.map((item) => {
               const isActive = activeSection === item.id;
@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection: controlledActiveS
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 focus-ring ${
+                  className={`relative px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-200 focus-ring ${
                     isActive
                       ? 'text-white bg-[var(--color-accent-primary)] shadow-xs font-semibold'
                       : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-tertiary)]/70'
@@ -159,7 +159,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection: controlledActiveS
             {/* Tablet/Medium Screen Navigation (Compact) */}
             <nav
               aria-label="Tablet Navigation"
-              className="hidden md:flex xl:hidden items-center gap-1 mr-1"
+              className="hidden md:flex lg:hidden items-center gap-1 mr-1"
             >
               {navigation.slice(0, 5).map((item) => {
                 const isActive = activeSection === item.id;
@@ -168,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection: controlledActiveS
                     key={item.id}
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item)}
-                    className={`px-2.5 py-1 text-xs rounded-md transition-colors focus-ring ${
+                    className={`px-2 py-1 text-xs rounded-md transition-colors focus-ring ${
                       isActive
                         ? 'text-[var(--color-accent-primary)] font-semibold bg-[var(--color-accent-subtle)]'
                         : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
@@ -191,7 +191,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection: controlledActiveS
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-nav-menu"
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="xl:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-tertiary)] text-[var(--color-text-primary)] transition-colors focus-ring cursor-pointer"
+              className="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg border border-[var(--color-border-subtle)] bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-tertiary)] text-[var(--color-text-primary)] transition-colors focus-ring cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
@@ -204,7 +204,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection: controlledActiveS
         <div
           id="mobile-nav-menu"
           ref={mobileMenuRef}
-          className="fixed inset-x-0 top-[57px] bottom-0 z-40 bg-[var(--color-bg-primary)]/95 backdrop-blur-xl border-t border-[var(--color-border-subtle)] overflow-y-auto px-6 py-6 transition-all duration-300 xl:hidden flex flex-col justify-between"
+          className="fixed inset-x-0 top-[57px] bottom-0 z-40 bg-[var(--color-bg-primary)]/95 backdrop-blur-xl border-t border-[var(--color-border-subtle)] overflow-y-auto px-6 py-6 transition-all duration-300 lg:hidden flex flex-col justify-between"
         >
           <div className="space-y-1">
             <p className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] mb-3 px-3">

@@ -17,11 +17,6 @@ export interface NavItem {
   href: string;
 }
 
-export interface FocusArea {
-  label: string;
-  tag: string;
-}
-
 export interface AboutContent {
   heading: string;
   leadParagraph: string;
@@ -60,9 +55,7 @@ export interface ExperienceContent {
 
 export interface SkillCategory {
   id: string;
-  index: string;
   label: string;
-  description?: string;
   skills: string[];
 }
 
@@ -103,8 +96,6 @@ export interface ServiceItem {
   number: string;
   title: string;
   shortDescription: string;
-  details?: string[];
-  technologies?: string[];
 }
 
 export interface ServicesContent {
@@ -117,14 +108,8 @@ export interface ServicesContent {
 export interface CertificationItem {
   id: string;
   title: string;
-  issuer?: string;
-  date?: string;
-  credentialId?: string;
-  description?: string;
-  credentialUrl?: string | null;
-  certificateImage?: string | null;
-  skills?: string[];
-  status?: string;
+  issuer: string;
+  credentialUrl: string;
 }
 
 export interface CertificationsContent {
@@ -134,35 +119,11 @@ export interface CertificationsContent {
   items: CertificationItem[];
 }
 
-export interface ResumeTimelineItem {
-  id: string;
-  year: string;
-  role: string;
-  org: string;
-  detail: string;
-}
-
-export interface ResumeFocusArea {
-  id: string;
-  label: string;
-  tags: string[];
-}
-
 export interface ResumeContent {
   eyebrow: string;
   heading: string;
-  subheading: string;
   fileUrl?: string | null;
   fileName?: string;
-  lastUpdated?: string;
-  education: {
-    degree: string;
-    institution: string;
-    faculty: string;
-    expectedGraduation: string;
-  };
-  timeline: ResumeTimelineItem[];
-  focusAreas: ResumeFocusArea[];
 }
 
 export interface ContactLink {
@@ -201,18 +162,13 @@ export interface PortfolioContent {
     secondaryCta: {
       label: string;
       href: string;
-      downloadFileName?: string;
-    };
-    contactLink: {
-      label: string;
-      href: string;
     };
   };
   about: AboutContent;
-  experience: ExperienceContent;
-  projects: ProjectsContent;
-  skills: SkillsContent;
   services: ServicesContent;
+  projects: ProjectsContent;
+  experience: ExperienceContent;
+  skills: SkillsContent;
   certifications: CertificationsContent;
   resume: ResumeContent;
   contact: ContactContent;
@@ -221,18 +177,18 @@ export interface PortfolioContent {
 export const portfolioContent: PortfolioContent = {
   personal: {
     name: 'Nada Shams Eldin',
-    title: 'AI Engineer',
-    statusText: 'Available for technical roles & AI projects',
+    title: 'AI Engineer & Web Developer',
+    statusText: 'Available for freelance projects',
     statusAvailable: true,
-    location: 'Remote / Hybrid',
+    location: 'Remote',
   },
   navigation: [
     { id: 'home', label: 'Home', href: '#home' },
     { id: 'about', label: 'About', href: '#about' },
-    { id: 'experience', label: 'Experience', href: '#experience' },
-    { id: 'projects', label: 'Projects', href: '#projects' },
-    { id: 'skills', label: 'Skills', href: '#skills' },
     { id: 'services', label: 'Services', href: '#services' },
+    { id: 'projects', label: 'Projects', href: '#projects' },
+    { id: 'experience', label: 'Experience', href: '#experience' },
+    { id: 'skills', label: 'Skills', href: '#skills' },
     { id: 'certifications', label: 'Certifications', href: '#certifications' },
     { id: 'resume', label: 'Resume', href: '#resume' },
     { id: 'contact', label: 'Contact', href: '#contact' },
@@ -240,27 +196,144 @@ export const portfolioContent: PortfolioContent = {
   hero: {
     namePrefix: 'Nada',
     nameHighlight: 'Shams Eldin',
-    role: 'AI Engineer',
-    description:
-      'Building practical machine learning and deep learning solutions, with hands-on experience across AI and web development.',
+    role: 'AI Engineer & Web Developer',
+    description: 'Building practical AI solutions and polished web experiences.',
     primaryCta: {
       label: 'View Projects',
       href: '#projects',
     },
     secondaryCta: {
-      label: 'Download Resume',
-      href: '#resume',
-      downloadFileName: 'Nada_Shams_Eldin_Resume.pdf',
-    },
-    contactLink: {
-      label: 'Get in Touch',
+      label: 'Hire Me',
       href: '#contact',
     },
   },
   about: {
-    heading: 'I’m Nada Shams Eldin, a Computer Science student at Cairo University and an AI Engineer focused on machine learning and deep learning.',
+    heading: 'About',
     leadParagraph:
-      'My experience combines hands-on AI project work, machine learning instruction, and web development. I enjoy building practical solutions where models and software come together, and I’m continuously deepening my skills through projects, training, and real-world experience.',
+      'AI Engineer and Web Developer focused on building practical digital products, from responsive websites and dashboards to machine learning solutions. I combine technical problem-solving with a focus on clean design, usability, and functional results.',
+  },
+  services: {
+    eyebrow: 'Services',
+    heading: 'Services',
+    intro: 'Client-focused web development and data dashboard solutions.',
+    services: [
+      {
+        id: 'landing-page-development',
+        number: '01',
+        title: 'Landing Page Development',
+        shortDescription:
+          'Responsive landing pages for businesses, products, and personal brands.',
+      },
+      {
+        id: 'figma-to-website',
+        number: '02',
+        title: 'Figma to Website',
+        shortDescription:
+          'Turning Figma designs into responsive, functional web pages.',
+      },
+      {
+        id: 'portfolio-website-development',
+        number: '03',
+        title: 'Portfolio Website Development',
+        shortDescription:
+          'Professional portfolio websites tailored to showcase your work and experience.',
+      },
+      {
+        id: 'power-bi-dashboard-development',
+        number: '04',
+        title: 'Power BI Dashboard Development',
+        shortDescription:
+          'Interactive dashboards that organize data into clear, useful insights.',
+      },
+    ],
+  },
+  projects: {
+    eyebrow: 'Projects',
+    heading: 'Projects',
+    description:
+      'Curated showcase of web development platforms, machine learning implementations, and applied AI systems.',
+    items: [
+      {
+        id: 'yummy-recipe-website',
+        title: 'Yummy Recipe Website',
+        category: 'Web Development',
+        shortDescription:
+          'Web development recipe application featuring dynamic Ajax interactions, secure user authentication, and relational data management built with Django and SQLite.',
+        fullDescription:
+          'Full-stack recipe website architecture implementing relational database models, dynamic asynchronous front-end updates, and user session management.',
+        technologies: [
+          'Django',
+          'SQLite',
+          'Ajax',
+          'Authentication',
+          'HTML',
+          'CSS',
+          'JavaScript',
+        ],
+        image: yummyImg,
+        additionalImages: [],
+        features: [
+          'User authentication and personalized session management',
+          'Asynchronous search and filtering powered by Ajax',
+          'Relational database architecture configured with SQLite and Django ORM',
+        ],
+        contribution:
+          'End-to-end full-stack development, Django backend models, database schema, and interactive client-side scripting.',
+        status: 'Completed',
+        githubUrl: 'https://github.com/NadaShamsEldin',
+        liveUrl: null,
+        colabUrl: null,
+        caseStudyUrl: null,
+      },
+      {
+        id: 'personal-budgeting-app',
+        title: 'Personal Budgeting App',
+        category: 'Web Application',
+        shortDescription:
+          'Web application designed for personal financial management, budgeting workflows, and categorized expense tracking.',
+        fullDescription:
+          'Intuitive financial application built to organize user budgets, calculate spending summaries, and present structured financial records.',
+        technologies: ['Web Application', 'Frontend Architecture'],
+        image: budgetingImg,
+        additionalImages: [],
+        features: [
+          'Structured expense input and budget allocation',
+          'Category-based financial record grouping',
+          'Clean, responsive user interface designed for daily financial monitoring',
+        ],
+        contribution:
+          'Architecture and implementation of the budgeting interface and application logic.',
+        status: 'Completed',
+        githubUrl: 'https://github.com/NadaShamsEldin',
+        liveUrl: null,
+        colabUrl: null,
+        caseStudyUrl: null,
+      },
+      {
+        id: 'adaptive-ai-study-planner',
+        title: 'Adaptive AI Study Planner',
+        category: 'AI Web Application',
+        shortDescription:
+          'AI-oriented web application leveraging FastAPI to provide adaptive study planning workflows and structured schedule management.',
+        fullDescription:
+          'Applied intelligent scheduling system that integrates a high-performance FastAPI service layer with dynamic study plan generation logic.',
+        technologies: ['FastAPI', 'AI Architecture', 'Python', 'Web Integration'],
+        image: studyPlannerImg,
+        additionalImages: [],
+        features: [
+          'High-performance asynchronous backend powered by FastAPI',
+          'Adaptive study schedule generation architecture',
+          'Modular service endpoints for task management and timing',
+        ],
+        contribution:
+          'Backend service design using FastAPI and integration of the study planning workflows.',
+        status: 'Active Architecture',
+        githubUrl: 'https://github.com/NadaShamsEldin',
+        liveUrl: null,
+        colabUrl: null,
+        caseStudyUrl: null,
+      },
+    ],
   },
   experience: {
     eyebrow: '02 // Professional Experience',
@@ -347,313 +420,76 @@ export const portfolioContent: PortfolioContent = {
       },
     ],
   },
-  projects: {
-    eyebrow: '03 // Selected Projects',
-    heading: 'Engineered Systems & Applied Case Studies',
-    description:
-      'Curated showcase of web development platforms, machine learning implementations, and applied AI systems.',
-    items: [
-      {
-        id: 'yummy-recipe-website',
-        title: 'Yummy Recipe Website',
-        category: 'Web Development',
-        shortDescription:
-          'Web development recipe application featuring dynamic Ajax interactions, secure user authentication, and relational data management built with Django and SQLite.',
-        fullDescription:
-          'Full-stack recipe website architecture implementing relational database models, dynamic asynchronous front-end updates, and user session management.',
-        technologies: [
-          'Django',
-          'SQLite',
-          'Ajax',
-          'Authentication',
-          'HTML',
-          'CSS',
-          'JavaScript',
-        ],
-        image: yummyImg,
-        additionalImages: [],
-        features: [
-          'User authentication and personalized session management',
-          'Asynchronous search and filtering powered by Ajax',
-          'Relational database architecture configured with SQLite and Django ORM',
-        ],
-        contribution:
-          'End-to-end full-stack development, Django backend models, database schema, and interactive client-side scripting.',
-        status: 'Completed',
-        githubUrl: 'https://github.com/NadaShamsEldin',
-        liveUrl: null,
-        colabUrl: null,
-        caseStudyUrl: null,
-      },
-      {
-        id: 'personal-budgeting-app',
-        title: 'Personal Budgeting App',
-        category: 'Web Application',
-        shortDescription:
-          'Web application designed for personal financial management, budgeting workflows, and categorized expense tracking.',
-        fullDescription:
-          'Intuitive financial application built to organize user budgets, calculate spending summaries, and present structured financial records.',
-        technologies: ['Web Application', 'Frontend Architecture'],
-        image: budgetingImg,
-        additionalImages: [],
-        features: [
-          'Structured expense input and budget allocation',
-          'Category-based financial record grouping',
-          'Clean, responsive user interface designed for daily financial monitoring',
-        ],
-        contribution:
-          'Architecture and implementation of the budgeting interface and application logic.',
-        status: 'Completed',
-        githubUrl: 'https://github.com/NadaShamsEldin',
-        liveUrl: null,
-        colabUrl: null,
-        caseStudyUrl: null,
-      },
-      {
-        id: 'adaptive-ai-study-planner',
-        title: 'Adaptive AI Study Planner',
-        category: 'AI Web Application',
-        shortDescription:
-          'AI-oriented web application leveraging FastAPI to provide adaptive study planning workflows and structured schedule management.',
-        fullDescription:
-          'Applied intelligent scheduling system that integrates a high-performance FastAPI service layer with dynamic study plan generation logic.',
-        technologies: ['FastAPI', 'AI Architecture', 'Python', 'Web Integration'],
-        image: studyPlannerImg,
-        additionalImages: [],
-        features: [
-          'High-performance asynchronous backend powered by FastAPI',
-          'Adaptive study schedule generation architecture',
-          'Modular service endpoints for task management and timing',
-        ],
-        contribution:
-          'Backend service design using FastAPI and integration of the study planning workflows.',
-        status: 'Active Architecture',
-        githubUrl: 'https://github.com/NadaShamsEldin',
-        liveUrl: null,
-        colabUrl: null,
-        caseStudyUrl: null,
-      },
-    ],
-  },
   skills: {
-    eyebrow: '04 // Technical Capabilities',
-    heading: 'Capability Map',
-    intro:
-      'A structured view of the programming languages, AI/ML methodologies, web technologies, and engineering tools applied across projects and professional work.',
+    eyebrow: 'Skills',
+    heading: 'Skills',
+    intro: 'Technical skills and technologies across programming, AI/ML, web development, computer science, and tools.',
     categories: [
       {
         id: 'programming',
-        index: '01',
         label: 'Programming',
-        description: 'Core languages used for algorithm implementation, system logic, and application development.',
         skills: ['Python', 'C++'],
       },
       {
         id: 'ai-ml',
-        index: '02',
         label: 'AI & Machine Learning',
-        description: 'Disciplines applied to model development, training pipelines, and intelligent system design.',
         skills: ['Machine Learning', 'Deep Learning'],
       },
       {
         id: 'web-development',
-        index: '03',
         label: 'Web Development',
-        description: 'Technologies used to build front-end interfaces, back-end services, and full-stack web applications.',
         skills: ['HTML', 'CSS', 'JavaScript', 'Django'],
       },
       {
         id: 'computer-science',
-        index: '04',
         label: 'Computer Science',
-        description: 'Foundational engineering principles underpinning software architecture and design decisions.',
         skills: ['Object-Oriented Programming', 'Data Structures', 'Software Engineering'],
       },
       {
         id: 'tools',
-        index: '05',
-        label: 'Tools & Platforms',
-        description: 'Version control, collaboration, and automation tools used throughout the development lifecycle.',
+        label: 'Tools',
         skills: ['Git', 'GitHub', 'n8n'],
       },
     ],
   },
-  services: {
-    eyebrow: '05 // Services',
-    heading: 'What I can build',
-    intro:
-      'Practical development services for web projects and applied AI work. Available for freelance collaboration, short-term contracts, and project-based engagements.',
-    services: [
-      {
-        id: 'web-development',
-        number: '01',
-        title: 'Web Development',
-        shortDescription:
-          'Responsive, structured websites and web applications built for clarity and function. From layout to backend integration, delivering complete implementations rather than isolated pieces.',
-        details: [
-          'Responsive layouts that work across desktop, tablet, and mobile',
-          'Server-side application development with Django and SQLite',
-          'Dynamic, interactive behavior using JavaScript',
-          'Clean HTML and CSS structure built for readability and maintenance',
-        ],
-        technologies: ['HTML', 'CSS', 'JavaScript', 'Django'],
-      },
-      {
-        id: 'frontend-development',
-        number: '02',
-        title: 'Frontend Development',
-        shortDescription:
-          'Structured, responsive frontend interfaces built from designs, references, or briefs. Focused on clean code, consistent layout, and browser compatibility.',
-        details: [
-          'Pixel-precise implementation from provided designs or wireframes',
-          'Mobile-first, responsive HTML and CSS layouts',
-          'Interactive elements and smooth user interface behavior',
-          'Accessible, semantic markup',
-        ],
-        technologies: ['HTML', 'CSS', 'JavaScript'],
-      },
-      {
-        id: 'django-development',
-        number: '03',
-        title: 'Django Development',
-        shortDescription:
-          'Backend web application development using Django. Building reliable data models, authentication flows, and server-rendered application logic.',
-        details: [
-          'Django application architecture and model design',
-          'User authentication and session management',
-          'Admin interface configuration and database management',
-          'Integration of frontend views with Django templates and APIs',
-        ],
-        technologies: ['Django'],
-      },
-      {
-        id: 'ai-ml-solutions',
-        number: '04',
-        title: 'AI & Machine Learning',
-        shortDescription:
-          'Machine learning and deep learning project development for experimentation, prototyping, and applied AI implementations.',
-        details: [
-          'Machine learning model development and evaluation',
-          'Deep learning project implementation and experimentation',
-          'Data preprocessing and feature engineering pipelines',
-          'AI-powered application prototypes and proof-of-concept builds',
-        ],
-        technologies: ['Python', 'Machine Learning', 'Deep Learning'],
-      },
-    ],
-  },
   certifications: {
-    eyebrow: '06 // Certifications',
-    heading: 'Credentials & Learning',
-    intro:
-      'Professional certificates and credentials from completed programs, internships, and technical training.',
+    eyebrow: 'Certifications',
+    heading: 'Certifications',
+    intro: 'Verified professional certifications and credentials.',
     items: [
       {
-        id: 'elevvo-internship-certificate',
-        title: '[Add certificate title]', // Update with exact certificate title from Elevvo Pathways
-        issuer: 'Elevvo Pathways',
-        date: '[Add date]', // Update with issue date
-        credentialId: undefined,
-        description:
-          'Certificate of completion awarded upon finishing the machine learning and deep learning internship program at Elevvo Pathways.',
-        credentialUrl: null, // Update with verification URL when available
-        certificateImage: null, // Place certificate image in src/assets/certifications/elevvo-internship.jpg
-        skills: ['Machine Learning', 'Deep Learning', 'Python'],
-        status: 'Completed',
+        id: 'udacity-generative-ai-aws',
+        title: 'Introducing Generative AI with AWS',
+        issuer: 'Udacity',
+        credentialUrl:
+          'https://www.udacity.com/certificate/e/a79868bc-4234-11f0-a4d4-b7dce7cd6c44',
       },
       {
-        id: 'aws-certificate',
-        title: '[Add AWS certificate title]', // Update with exact AWS course/certification name
-        issuer: 'Amazon Web Services (AWS)',
-        date: '[Add date]', // Update with issue date
-        credentialId: undefined, // Update with credential ID
-        description: undefined, // Update with description once exact certificate title is known
-        credentialUrl: null, // Update with AWS verification URL when available
-        certificateImage: null, // Place certificate image in src/assets/certifications/aws-certificate.jpg
-        skills: [],
-        status: 'Completed',
+        id: 'aws-educate-ml-foundations',
+        title: 'AWS Educate Machine Learning Foundations',
+        issuer: 'AWS Educate',
+        credentialUrl:
+          'https://www.credly.com/badges/66ff8bd7-2eab-457e-9d80-c8a33cd0867c/linked_in_profile',
       },
     ],
   },
   resume: {
     eyebrow: 'Resume',
-    heading: 'A closer look at my journey.',
-    subheading: 'AI, machine learning, and software engineering — all in one place.',
-    fileUrl: null, // Place the PDF at src/assets/resume/Nada-Shams-Eldin-Resume.pdf and update this path
+    heading: 'Resume',
+    fileUrl: null,
     fileName: 'Nada-Shams-Eldin-Resume.pdf',
-    lastUpdated: undefined,
-    education: {
-      degree: 'B.Sc. Computer Science',
-      institution: 'Cairo University',
-      faculty: 'Faculty of Computers and Artificial Intelligence',
-      expectedGraduation: '2028',
-    },
-    timeline: [
-      {
-        id: 'internship',
-        year: '2025',
-        role: 'Machine Learning Intern',
-        org: 'Elevvo Pathways',
-        detail: 'July – August 2025',
-      },
-      {
-        id: 'star-union',
-        year: '2025 – Present',
-        role: 'AI Member & Technical Instructor',
-        org: 'Star Union',
-        detail: 'November 2025 – Present',
-      },
-      {
-        id: 'graduation',
-        year: '2028',
-        role: 'Expected Graduation',
-        org: 'Cairo University',
-        detail: 'Faculty of Computers and Artificial Intelligence',
-      },
-    ],
-    focusAreas: [
-      {
-        id: 'ai-ml',
-        label: 'AI / ML',
-        tags: ['Deep Learning', 'Machine Learning', 'Computer Vision', 'Transfer Learning'],
-      },
-      {
-        id: 'web',
-        label: 'Web',
-        tags: ['Python', 'Django', 'JavaScript', 'HTML', 'CSS', 'SQL'],
-      },
-      {
-        id: 'mlops',
-        label: 'MLOps',
-        tags: ['Data Pipelines', 'Ensemble Learning', 'Git', 'GitHub'],
-      },
-      {
-        id: 'ai-automation',
-        label: 'AI Automation',
-        tags: ['n8n', 'Multi-Agent AI Workflows'],
-      },
-    ],
   },
-
   contact: {
-    eyebrow: '08 // Contact',
-    heading: 'Start a conversation',
-    intro:
-      'Available for freelance opportunities, AI engineering roles, and technical collaborations. Reach out via email or connect through the platforms below.',
+    eyebrow: 'Contact',
+    heading: "Let's Work Together",
+    intro: "Have a project in mind? Let's talk.",
     links: [
       {
         id: 'email',
         label: 'Email',
         value: '[Add email address]',
-        href: null, // e.g. 'mailto:name@example.com'
+        href: null,
         type: 'email',
-      },
-      {
-        id: 'phone',
-        label: 'Phone',
-        value: '[Add phone number]',
-        href: null, // e.g. 'tel:+1234567890'
-        type: 'phone',
       },
       {
         id: 'linkedin',
@@ -665,38 +501,11 @@ export const portfolioContent: PortfolioContent = {
       {
         id: 'github',
         label: 'GitHub',
-        value: 'github.com/[username]',
-        href: null,
+        value: 'github.com/NadaShamsEldin',
+        href: 'https://github.com/NadaShamsEldin',
         type: 'social',
-      },
-      {
-        id: 'google',
-        label: 'Google',
-        value: 'Google Profile',
-        href: null,
-        type: 'external',
-      },
-      {
-        id: 'mostaql',
-        label: 'Mostaql',
-        value: 'Freelance Profile',
-        href: null,
-        type: 'external',
-      },
-      {
-        id: 'khamsat',
-        label: 'Khamsat',
-        value: 'Freelance Profile',
-        href: null,
-        type: 'external',
-      },
-      {
-        id: 'nafezly',
-        label: 'Nafezly',
-        value: 'Freelance Profile',
-        href: null,
-        type: 'external',
       },
     ],
   },
 };
+
