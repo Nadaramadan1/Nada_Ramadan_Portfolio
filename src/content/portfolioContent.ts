@@ -96,6 +96,7 @@ export interface ServiceItem {
   number: string;
   title: string;
   shortDescription: string;
+  relatedProjectId?: string;
 }
 
 export interface ServicesContent {
@@ -122,6 +123,7 @@ export interface CertificationsContent {
 export interface ResumeContent {
   eyebrow: string;
   heading: string;
+  subheading: string;
   fileUrl?: string | null;
   fileName?: string;
 }
@@ -214,8 +216,8 @@ export const portfolioContent: PortfolioContent = {
   },
   services: {
     eyebrow: 'Services',
-    heading: 'Services',
-    intro: 'Client-focused web development and data dashboard solutions.',
+    heading: 'What are you looking to build?',
+    intro: 'Select a project need below to explore practical implementations and initiate a focused conversation.',
     services: [
       {
         id: 'landing-page-development',
@@ -223,6 +225,7 @@ export const portfolioContent: PortfolioContent = {
         title: 'Landing Page Development',
         shortDescription:
           'Responsive landing pages for businesses, products, and personal brands.',
+        relatedProjectId: 'personal-budgeting-app',
       },
       {
         id: 'figma-to-website',
@@ -230,6 +233,7 @@ export const portfolioContent: PortfolioContent = {
         title: 'Figma to Website',
         shortDescription:
           'Turning Figma designs into responsive, functional web pages.',
+        relatedProjectId: 'yummy-recipe-website',
       },
       {
         id: 'portfolio-website-development',
@@ -237,6 +241,7 @@ export const portfolioContent: PortfolioContent = {
         title: 'Portfolio Website Development',
         shortDescription:
           'Professional portfolio websites tailored to showcase your work and experience.',
+        relatedProjectId: 'yummy-recipe-website',
       },
       {
         id: 'power-bi-dashboard-development',
@@ -244,6 +249,7 @@ export const portfolioContent: PortfolioContent = {
         title: 'Power BI Dashboard Development',
         shortDescription:
           'Interactive dashboards that organize data into clear, useful insights.',
+        relatedProjectId: 'adaptive-ai-study-planner',
       },
     ],
   },
@@ -474,8 +480,9 @@ export const portfolioContent: PortfolioContent = {
     ],
   },
   resume: {
-    eyebrow: 'Resume',
-    heading: 'Resume',
+    eyebrow: 'RESUME',
+    heading: 'Download My Resume',
+    subheading: 'An overview of my experience, projects, and technical background.',
     fileUrl: null,
     fileName: 'Nada-Shams-Eldin-Resume.pdf',
   },

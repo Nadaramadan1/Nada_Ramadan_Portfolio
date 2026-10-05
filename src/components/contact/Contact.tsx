@@ -2,10 +2,12 @@ import React from 'react';
 import { Container } from '../primitives/Container';
 import { Section } from '../primitives/Section';
 import { portfolioContent } from '../../content/portfolioContent';
-import { ArrowUpRight } from 'lucide-react';
+import { useServiceIntent } from '../../context/ServiceIntentContext';
+import { ArrowUpRight, CheckCircle2, X } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const { contact } = portfolioContent;
+  const { selectedServiceTitle, clearService } = useServiceIntent();
 
   return (
     <Section
@@ -26,10 +28,43 @@ export const Contact: React.FC = () => {
           </p>
         </div>
 
+        {/* Selected Service Intent Badge / State */}
+        {selectedServiceTitle && (
+          <div className="mb-8 p-4 rounded-xl border border-[var(--color-accent-primary)]/40 bg-[var(--color-accent-subtle)]/40 flex items-center justify-between gap-4 max-w-2xl">
+            <div className="flex items-center gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-[var(--color-accent-primary)] shrink-0" />
+              <span className="text-xs sm:text-sm font-medium text-[var(--color-text-primary)]">
+                Selected service intent:{' '}
+                <strong className="font-semibold text-[var(--color-accent-primary)]">
+                  {selectedServiceTitle}
+                </strong>
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={clearService}
+              className="inline-flex items-center gap-1 text-xs font-mono text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] focus-ring rounded"
+              title="Clear selection"
+            >
+              <span>Reset</span>
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {contact.links.map((link) => {
             const hasHref = Boolean(link.href);
             const isEmail = link.type === 'email';
+
+            // Contextual mailto link with pre-filled subject if service selected
+            const href =
+              isEmail && selectedServiceTitle
+                ? `mailto:nada.rshams@gmail.com?subject=${encodeURIComponent(
+                    `Project Inquiry: ${selectedServiceTitle}`
+                  )}`
+                : link.href!;
+
             return (
               <div
                 key={link.id}
@@ -47,7 +82,7 @@ export const Contact: React.FC = () => {
                 {hasHref && (
                   <div>
                     <a
-                      href={link.href!}
+                      href={href}
                       target={isEmail ? undefined : '_blank'}
                       rel={isEmail ? undefined : 'noopener noreferrer'}
                       className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[var(--color-accent-primary)] hover:underline focus-ring rounded"
@@ -65,5 +100,6 @@ export const Contact: React.FC = () => {
     </Section>
   );
 };
+
 
 

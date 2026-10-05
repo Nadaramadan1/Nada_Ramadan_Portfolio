@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from './context/ThemeContext';
+import { ServiceIntentProvider } from './context/ServiceIntentContext';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/hero/Hero';
 import { About } from './components/about/About';
@@ -10,6 +11,7 @@ import { Services } from './components/services/Services';
 import { Certifications } from './components/certifications/Certifications';
 import { Resume } from './components/resume/Resume';
 import { Contact } from './components/contact/Contact';
+import { CustomCursor } from './components/primitives/CustomCursor';
 import { Container } from './components/primitives/Container';
 import { portfolioContent } from './content/portfolioContent';
 
@@ -18,6 +20,7 @@ const PortfolioMain: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] transition-colors duration-200">
+      <CustomCursor />
       {/* Accessible skip link */}
       <a href="#main-content" className="skip-link">
         Skip to main content
@@ -80,7 +83,9 @@ const PortfolioMain: React.FC = () => {
 export default function App() {
   return (
     <ThemeProvider>
-      <PortfolioMain />
+      <ServiceIntentProvider>
+        <PortfolioMain />
+      </ServiceIntentProvider>
     </ThemeProvider>
   );
 }
