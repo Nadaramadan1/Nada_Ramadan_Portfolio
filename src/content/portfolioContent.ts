@@ -225,7 +225,6 @@ export const portfolioContent: PortfolioContent = {
         title: 'Landing Page Development',
         shortDescription:
           'Responsive landing pages for businesses, products, and personal brands.',
-        relatedProjectId: 'personal-budgeting-app',
       },
       {
         id: 'figma-to-website',
@@ -241,7 +240,6 @@ export const portfolioContent: PortfolioContent = {
         title: 'Portfolio Website Development',
         shortDescription:
           'Professional portfolio websites tailored to showcase your work and experience.',
-        relatedProjectId: 'yummy-recipe-website',
       },
       {
         id: 'power-bi-dashboard-development',
@@ -249,7 +247,6 @@ export const portfolioContent: PortfolioContent = {
         title: 'Power BI Dashboard Development',
         shortDescription:
           'Interactive dashboards that organize data into clear, useful insights.',
-        relatedProjectId: 'adaptive-ai-study-planner',
       },
     ],
   },
