@@ -18,9 +18,17 @@ export interface NavItem {
   href: string;
 }
 
+export interface ProgressionStep {
+  number: string;
+  stage: string;
+  summary: string;
+}
+
 export interface AboutContent {
+  eyebrow: string;
   heading: string;
-  leadParagraph: string;
+  paragraphs: string[];
+  progression: ProgressionStep[];
 }
 
 export interface EducationContent {
@@ -228,9 +236,35 @@ export const portfolioContent: PortfolioContent = {
     },
   },
   about: {
-    heading: 'About',
-    leadParagraph:
-      'AI Engineer and Web Developer focused on building practical digital products, from responsive websites and dashboards to machine learning solutions. I combine technical problem-solving with a focus on clean design, usability, and functional results.',
+    eyebrow: 'ABOUT',
+    heading: 'From learning AI to building with it.',
+    paragraphs: [
+      'My journey in artificial intelligence began during my first year at Cairo University. Exploring machine learning fundamentals early on gave me a strong technical foundation and a clear direction for my work in computer science.',
+      'To deepen my understanding, I joined a student activity where I stepped into the role of AI Instructor for the Machine Learning track. Teaching core ML concepts to fellow students challenged me to break down complex algorithms with clarity—strengthening both my technical grasp and my communication.',
+      'I translated that foundation into industry practice through a Machine Learning Internship at Elevvo Pathways, working hands-on with machine learning and deep learning models. To further extend my technical scope, I joined the Digital Egypt Pioneers Initiative (DEPI) in the Machine Learning track, expanding across computer vision, NLP, data analysis, Azure, and MLOps. Today, I focus on building practical AI solutions and integrating them with modern web development to deliver functional, end-to-end digital products.',
+    ],
+    progression: [
+      {
+        number: '01',
+        stage: 'Learn',
+        summary: 'Started exploring AI during my first year at university.',
+      },
+      {
+        number: '02',
+        stage: 'Teach',
+        summary: 'Became an AI Instructor and taught Machine Learning to fellow students.',
+      },
+      {
+        number: '03',
+        stage: 'Apply',
+        summary: 'Gained hands-on ML & deep learning experience through Elevvo Pathways.',
+      },
+      {
+        number: '04',
+        stage: 'Expand',
+        summary: 'Joined DEPI to broaden skills across ML, Computer Vision, NLP, and MLOps.',
+      },
+    ],
   },
   education: {
     eyebrow: 'EDUCATION',
