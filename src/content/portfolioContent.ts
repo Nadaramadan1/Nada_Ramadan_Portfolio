@@ -10,6 +10,7 @@
 import yummyImg from '../assets/projects/yummy-recipe.jpg';
 import budgetingImg from '../assets/projects/budgeting-app.jpg';
 import studyPlannerImg from '../assets/projects/study-planner.jpg';
+import profileImg from '../assets/nada-ramadan.jpg';
 
 export interface NavItem {
   id: string;
@@ -20,6 +21,19 @@ export interface NavItem {
 export interface AboutContent {
   heading: string;
   leadParagraph: string;
+}
+
+export interface EducationContent {
+  eyebrow: string;
+  university: string;
+  faculty: string;
+  degree: string;
+  expectedGraduation: string;
+  ranking: {
+    rank: string;
+    label: string;
+    context: string;
+  };
 }
 
 export interface ExperienceLink {
@@ -150,6 +164,7 @@ export interface PortfolioContent {
     statusText: string;
     statusAvailable: boolean;
     location: string;
+    profileImage: string;
   };
   navigation: NavItem[];
   hero: {
@@ -167,6 +182,7 @@ export interface PortfolioContent {
     };
   };
   about: AboutContent;
+  education: EducationContent;
   services: ServicesContent;
   projects: ProjectsContent;
   experience: ExperienceContent;
@@ -183,10 +199,12 @@ export const portfolioContent: PortfolioContent = {
     statusText: 'Available for freelance projects',
     statusAvailable: true,
     location: 'Remote',
+    profileImage: profileImg,
   },
   navigation: [
     { id: 'home', label: 'Home', href: '#home' },
     { id: 'about', label: 'About', href: '#about' },
+    { id: 'education', label: 'Education', href: '#education' },
     { id: 'services', label: 'Services', href: '#services' },
     { id: 'projects', label: 'Projects', href: '#projects' },
     { id: 'experience', label: 'Experience', href: '#experience' },
@@ -213,6 +231,18 @@ export const portfolioContent: PortfolioContent = {
     heading: 'About',
     leadParagraph:
       'AI Engineer and Web Developer focused on building practical digital products, from responsive websites and dashboards to machine learning solutions. I combine technical problem-solving with a focus on clean design, usability, and functional results.',
+  },
+  education: {
+    eyebrow: 'EDUCATION',
+    university: 'Cairo University',
+    faculty: 'Faculty of Computers & Artificial Intelligence',
+    degree: 'Bachelor of Computer Science',
+    expectedGraduation: '2028',
+    ranking: {
+      rank: '#33',
+      label: 'Faculty Rank',
+      context: 'Top 50 Students',
+    },
   },
   services: {
     eyebrow: 'Services',

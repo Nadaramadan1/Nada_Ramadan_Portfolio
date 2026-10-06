@@ -37,63 +37,90 @@ export const Hero: React.FC = () => {
       />
 
       <Container size="2xl">
-        <div className="relative flex flex-col justify-center max-w-3xl">
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          {/* Left Column — Core Copy & CTAs */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
 
-          {/* Availability badge */}
-          <div className="animate-hero-1 mb-6 sm:mb-8">
-            <span className="inline-flex items-center gap-2 font-mono text-xs font-medium text-[var(--color-text-muted)] bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] px-3 py-1.5 rounded-full">
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"
+            {/* Availability badge */}
+            <div className="animate-hero-1 mb-6 sm:mb-8">
+              <span className="inline-flex items-center gap-2 font-mono text-xs font-medium text-[var(--color-text-muted)] bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] px-3 py-1.5 rounded-full">
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"
+                  aria-hidden="true"
+                />
+                {personal.statusText}
+              </span>
+            </div>
+
+            {/* 1. Name — primary visual anchor */}
+            <div className="animate-hero-2 mb-4">
+              <h1 className="text-5xl sm:text-7xl xl:text-8xl font-bold tracking-tight text-[var(--color-text-primary)] leading-[1.04]">
+                {hero.namePrefix}{' '}
+                <span className="text-[var(--color-text-primary)]">
+                  {hero.nameHighlight}
+                </span>
+              </h1>
+            </div>
+
+            {/* 2. Role — accent-colored mono */}
+            <div className="animate-hero-3 mb-6">
+              <span className="font-mono text-lg sm:text-xl font-semibold tracking-tight text-[var(--color-accent-primary)]">
+                {hero.role}
+              </span>
+            </div>
+
+            {/* 3. Supporting line */}
+            <p className="animate-hero-4 text-lg sm:text-xl text-[var(--color-text-secondary)] leading-relaxed mb-10 font-normal max-w-xl">
+              {hero.description}
+            </p>
+
+            {/* 4. CTAs */}
+            <div className="animate-hero-5 flex flex-wrap items-center gap-4">
+              <Button
+                variant="primary"
+                size="lg"
+                href={hero.primaryCta.href}
+                onClick={(e) => scrollToSection(e, hero.primaryCta.href)}
+                rightIcon={<ArrowDownRight className="w-4 h-4" />}
+              >
+                <span>{hero.primaryCta.label}</span>
+              </Button>
+
+              <Button
+                variant="outline"
+                size="lg"
+                href={hero.secondaryCta.href}
+                onClick={(e) => scrollToSection(e, hero.secondaryCta.href)}
+                rightIcon={<ArrowRight className="w-4 h-4" />}
+              >
+                <span>{hero.secondaryCta.label}</span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Column — Professional Portrait Photo */}
+          <div className="lg:col-span-5 animate-hero-panel flex justify-center lg:justify-end">
+            <div className="relative group max-w-xs sm:max-w-sm lg:max-w-md w-full">
+              {/* Subtle ambient accent glow */}
+              <div
+                className="absolute -inset-3 rounded-3xl bg-[var(--color-accent-subtle)] blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none"
                 aria-hidden="true"
               />
-              {personal.statusText}
-            </span>
+
+              {/* Framed image container */}
+              <div className="relative rounded-2xl p-2 sm:p-2.5 bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] shadow-elevated transition-all duration-300 group-hover:border-[var(--color-accent-border)]">
+                <div className="overflow-hidden rounded-xl bg-[var(--color-bg-tertiary)] aspect-[4/5] relative">
+                  <img
+                    src={personal.profileImage}
+                    alt={`${personal.name} - ${personal.title}`}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* 1. Name — primary visual anchor */}
-          <div className="animate-hero-2 mb-4">
-            <h1 className="text-5xl sm:text-7xl xl:text-8xl font-bold tracking-tight text-[var(--color-text-primary)] leading-[1.04]">
-              {hero.namePrefix}{' '}
-              <span className="text-[var(--color-text-primary)]">
-                {hero.nameHighlight}
-              </span>
-            </h1>
-          </div>
-
-          {/* 2. Role — accent-colored mono */}
-          <div className="animate-hero-3 mb-6">
-            <span className="font-mono text-lg sm:text-xl font-semibold tracking-tight text-[var(--color-accent-primary)]">
-              {hero.role}
-            </span>
-          </div>
-
-          {/* 3. Supporting line */}
-          <p className="animate-hero-4 text-lg sm:text-xl text-[var(--color-text-secondary)] leading-relaxed mb-10 font-normal max-w-xl">
-            {hero.description}
-          </p>
-
-          {/* 4. CTAs */}
-          <div className="animate-hero-5 flex flex-wrap items-center gap-4">
-            <Button
-              variant="primary"
-              size="lg"
-              href={hero.primaryCta.href}
-              onClick={(e) => scrollToSection(e, hero.primaryCta.href)}
-              rightIcon={<ArrowDownRight className="w-4 h-4" />}
-            >
-              <span>{hero.primaryCta.label}</span>
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              href={hero.secondaryCta.href}
-              onClick={(e) => scrollToSection(e, hero.secondaryCta.href)}
-              rightIcon={<ArrowRight className="w-4 h-4" />}
-            >
-              <span>{hero.secondaryCta.label}</span>
-            </Button>
-          </div>
         </div>
       </Container>
     </Section>

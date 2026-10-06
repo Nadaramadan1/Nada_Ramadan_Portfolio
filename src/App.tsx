@@ -4,6 +4,7 @@ import { ServiceIntentProvider } from './context/ServiceIntentContext';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/hero/Hero';
 import { About } from './components/about/About';
+import { Education } from './components/education/Education';
 import { Experience } from './components/experience/Experience';
 import { Projects } from './components/projects/Projects';
 import { Skills } from './components/skills/Skills';
@@ -37,7 +38,10 @@ const PortfolioMain: React.FC = () => {
         {/* Section 2: About */}
         <About />
 
-        {/* Section 3: Services */}
+        {/* Section 3: Education */}
+        <Education />
+
+        {/* Section 4: Services */}
         <Services />
 
         {/* Section 4: Projects */}
